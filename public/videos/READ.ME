@@ -1,0 +1,7 @@
+The ffmpeg command performs a series of video encoding and formatting:
+This command takes input.mp4, resizes it to 960px width while preserving aspect ratio,
+encodes it using H.264 with high quality (CRF 20), ensures it plays smoothly on the web (faststart),
+outputs all frames as I-frames (good for frame accuracy), and ensures maximum compatibility (yuv420p).
+The resulting file will be larger than normal due to -g 1.
+
+ffmpeg -i input.mp4 -vf scale=960:-1 -movflags faststart -vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p output.mp4
